@@ -1,0 +1,25 @@
+<h2>Comments</h2>
+
+<table class="table table-striped">
+    <tr ng-repeat="d in comments">
+      <td>
+        <p>
+        {{$index}}. {{d.content}}</a>
+        </p>
+        <p>{{d.nvotes}} votes by Author: <a href="#/users/{{d.author_id}}">{{user}}</a> <span am-time-ago="d.timestamp"></span></p>
+      </td>
+    </tr>
+</table>
+    <h2>Replies</h2>
+<table class="table table-striped">
+
+    <tr ng-repeat="d in replies">
+        <td>
+            <p>
+                {{$index}}. {{d.content}}</a>
+            </p>
+            <p>{{d.nvotes}} votes by Author: <a href="#/users/{{d.author_id}}">{{user}}</a> <span am-time-ago="d.timestamp"></span></p>
+        </td>
+    </tr>
+
+</table>

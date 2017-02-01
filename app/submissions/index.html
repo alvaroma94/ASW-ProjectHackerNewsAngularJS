@@ -1,0 +1,14 @@
+<table class="table table-striped">
+    <tr ng-repeat="d in data">
+      <td>
+        <p>
+        {{$index}}. <a href="{{d.url}}">{{d.title}} - ({{d.url}})</a>
+        </p>
+        <p>
+            <button type="voteSubmission" class="btn btn-success" ng-click="voteSubmission(d.id)">▲</button>
+            {{d.nvotes}} votes | by Author: <a href="#/users/{{d.author_id}}">{{users[d.id]}}</a> <span am-time-ago="d.timestamp"></span> | <a href="#/submissions/{{d.id}}">{{d.ncomments}} comments</a>
+        </p>
+
+      </td>
+    </tr>
+</table>

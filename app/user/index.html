@@ -1,0 +1,13 @@
+<div class="col-md-12">
+    <h3>Email</h3>
+
+    <p>{{data.email}}</p>
+    <p ng-show="!editable">About: {{data.about}}</p>
+    <div ng-show="editable">
+        <h3>About</h3>
+    <input  class="form-control" ng-model="about">
+    </div>
+    <p><a href="#/submissions/user/{{data.id}}">Submissions</a></p>
+    <p><a href="#/comments/user/{{data.id}}">Comments</a></p>
+    <button ng-show="editable" class="btn btn-success" ng-click="submit()">Submit</button>
+</div>

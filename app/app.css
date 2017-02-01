@@ -1,0 +1,9 @@
+@media screen and (max-width:728px){
+  .right{
+  float: right;
+  }
+}
+.btn-success{
+  font-size: 10px;
+  padding: 3px;
+}

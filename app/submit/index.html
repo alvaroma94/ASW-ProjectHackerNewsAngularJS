@@ -1,0 +1,26 @@
+<div class="col-md-12">
+    <div class="alert alert-danger" ng-if="errorMessage">{{errorMessage}}</div>
+    <div>
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" class="form-control"  ng-model="title" id="title">
+        </div>
+
+
+        <div class="form-group">
+            <label for="url">URL:</label>
+            <input type="text" class="form-control"  ng-model="url" id="url" ng-disabled="content != ''">
+        </div>
+
+        <div class="form-group">
+            <label for="content">Content:</label>
+            <textarea type="text" class="form-control" ng-model="content" id="content" ng-disabled="url != ''"></textarea>
+        </div>
+
+        <div>
+            <button type="submit" class="btn btn-success" ng-click="submit()" ng-disabled="(!title && !url) || (!title && !content)">Submit</button>
+        </div>
+
+        <small>Leave url blank to submit a question for discussion. If there is no url, the text (if any) will appear at the top of the thread.</small>
+    </div>
+</div>

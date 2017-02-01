@@ -1,0 +1,24 @@
+<div class="col-md-12">
+
+    <p><button type="voteComment" class="btn btn-success" ng-click="voteComment(data.id)">▲</button>
+        {{data.nvotes}} votes | by Author:
+        <a href="#/users/{{data.author_id}}">{{author}}</a> about <span am-time-ago="data.timestamp"></span></p>
+    <p>{{data.content}}</p>
+
+</div>
+<div class="col-md-12">
+    <div class="form-group">
+        <label for="content">Reply:</label>
+        <input type="text" class="form-control"  ng-model="content" id="content">
+    </div>
+    <div>
+        <button type="addreply" class="btn btn-success" ng-click="addreply()">add a reply</button>
+    </div>
+    <h2>Replies</h2>
+    <div ng-repeat="r in replies | orderBy : timestamp">
+        <button type="voteReply" class="btn btn-success" ng-click="voteReply(r.id)">▲</button>
+        {{r.nvotes}} votes | by Author:
+        <a href="#/users/{{r.author_id}}">{{replyUsers[r.id]}}</a> about <span am-time-ago="r.timestamp"></span></p>
+        <p>{{r.content}}</p>
+    </div>
+</div>

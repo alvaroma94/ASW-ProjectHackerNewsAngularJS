@@ -1,0 +1,35 @@
+<div class="col-md-12">
+
+        <a href="{{data.url}}">{{data.title}} - ({{data.url}})</a>
+        </p>
+        <p> <button type="voteSubmission" class="btn btn-success" ng-click="voteSubmission(data.id)">▲</button>
+            {{data.nvotes}} votes | by Author:
+            <a href="#/users/{{data.author_id}}">{{author}}</a>
+            <span am-time-ago="data.timestamp"></span> | <a href="#/submission/{{data.id}}">{{data.ncomments}} comments</a></p>
+            {{data.content}}
+
+</div>
+<div class="col-md-12">
+    <div class="form-group">
+        <label for="content">Comment:</label>
+        <input type="text" class="form-control"  ng-model="content" id="content">
+    </div>
+    <div>
+        <button type="addcomment" class="btn btn-success" ng-click="addcomment()">add a comment</button>
+    </div>
+    <h2>Comments</h2>
+    <div ng-repeat="c in comments | orderBy : timestamp">
+        <p><button type="voteComment" class="btn btn-success" ng-click="voteComment(c.id)">▲</button>
+            {{c.nvotes}} votes | by Author:
+            <a href="#/users/{{c.author_id}}">{{commentUsers[c.id]}}</a> about <span am-time-ago="c.timestamp"></span></p>
+        <p>{{c.content}}</p>
+        <a href="#/comments/{{c.id}}">Reply</a>
+            <div ng-repeat="r in replies[c.id]">
+                <p style="margin-left:5em;">
+                    <button type="voteReply" class="btn btn-success" ng-click="voteReply(r.id)">▲</button>
+                    {{r.nvotes}} votes | by Author:
+                    <a href="#/users/{{r.author_id}}">{{replyUsers[r.id]}}</a> about <span am-time-ago="r.timestamp"></span></p>
+                <p style="margin-left:5em;">{{r.content}}</p>
+            </div>
+    </div>
+</div>
